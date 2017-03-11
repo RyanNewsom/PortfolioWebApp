@@ -19,8 +19,13 @@ namespace Portfolio.Controllers
         }
 
         // GET: Blogs
-        public async Task<IActionResult> Index(string query)
+        public async Task<IActionResult> Index(string blogLabel, string query)
         {
+            // Use LINQ to get list of genres.
+            IQueryable<string> labelQuery = from m in _context.Blog
+                                            orderby m.Label
+                                            select m.Label;
+
             var blogPosts = from b in _context.Blog select b;
 
             if (!String.IsNullOrEmpty(query))
@@ -28,7 +33,16 @@ namespace Portfolio.Controllers
                 blogPosts = blogPosts.Where(s => s.Title.Contains(query));
             }
 
-            return View(await blogPosts.ToListAsync());
+            if (!String.IsNullOrEmpty(blogLabel))
+            {
+                blogPosts = blogPosts.Where(x => x.Label == blogLabel);
+            }
+
+            var blogLabelVM = new BlogLabelViewModel();
+            blogLabelVM.labels = new SelectList(await labelQuery.Distinct().ToListAsync());
+            blogLabelVM.blogs = await blogPosts.ToListAsync();
+
+            return View(blogLabelVM);
         }
 
         // GET: Blogs/Details/5

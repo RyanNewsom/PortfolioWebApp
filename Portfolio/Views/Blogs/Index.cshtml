@@ -1,4 +1,4 @@
-@model IEnumerable<Portfolio.Models.Blog>
+@model Portfolio.Models.BlogLabelViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -10,8 +10,12 @@
     <a asp-action="Create">Create New</a>
 </p>
 
-<form asp-controller="Blogs" asp-action="Index">
+<form asp-controller="Blogs" asp-action="Index" method="get">
     <p>
+        <select asp-for="blogLabel" asp-items="Model.labels">
+            <option value="">All</option>
+        </select>
+
         Title: <input type="text" name="query">
         <input type="submit" value="Filter" />
     </p>
@@ -21,22 +25,22 @@
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Title)
+                    @Html.DisplayNameFor(model => model.blogs[0].Title)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ReleaseDate)
+                    @Html.DisplayNameFor(model => model.blogs[0].ReleaseDate)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Label)
+                    @Html.DisplayNameFor(model => model.blogs[0].Label)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Body)
+                    @Html.DisplayNameFor(model => model.blogs[0].Body)
                 </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.blogs) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
