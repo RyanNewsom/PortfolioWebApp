@@ -19,9 +19,16 @@ namespace Portfolio.Controllers
         }
 
         // GET: Blogs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string id)
         {
-            return View(await _context.Blog.ToListAsync());
+            var blogPosts = from b in _context.Blog select b;
+
+            if (!String.IsNullOrEmpty(id))
+            {
+                blogPosts = blogPosts.Where(s => s.Title.Contains(id));
+            }
+
+            return View(await blogPosts.ToListAsync());
         }
 
         // GET: Blogs/Details/5
