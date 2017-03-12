@@ -19,23 +19,19 @@ namespace Portfolio.Controllers
         }
 
         // GET: Blogs
-        public async Task<IActionResult> Index(string blogLabel, string query)
+        public async Task<IActionResult> Index(string searchQuery, string query)
         {
             // Use LINQ to get list of genres.
+
             IQueryable<string> labelQuery = from m in _context.Blog
                                             orderby m.Label
                                             select m.Label;
 
             var blogPosts = from b in _context.Blog select b;
 
-            if (!String.IsNullOrEmpty(query))
+            if (!String.IsNullOrEmpty(searchQuery))
             {
-                blogPosts = blogPosts.Where(s => s.Title.Contains(query));
-            }
-
-            if (!String.IsNullOrEmpty(blogLabel))
-            {
-                blogPosts = blogPosts.Where(x => x.Label == blogLabel);
+                blogPosts = blogPosts.Where(s => s.Title.Contains(searchQuery));
             }
 
             var blogLabelVM = new BlogLabelViewModel();

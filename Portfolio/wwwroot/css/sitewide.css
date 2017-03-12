@@ -18,6 +18,10 @@ textarea {
     max-width: 280px;
 }
 
+.link {
+    color: aqua;
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;

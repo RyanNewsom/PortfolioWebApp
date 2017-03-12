@@ -6,71 +6,46 @@
 
 
 <div class="container">
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-3 text-center">Colorado Native, Software Engineer, Adventurer</h1>
-            <p class="lead text-center">I write about many different topics ranging from software development to living an active lifestyle. If you have any cool ideas for topics, contact me!</p>
+
+    <div class="row">
+        <div class="col s12">
+            <h2 class="center-align">Welcome to my Blog</h2>
         </div>
     </div>
 
     <form asp-controller="Blogs" asp-action="Index" method="get">
-        <p>
-            <select asp-for="blogLabel" asp-items="Model.labels">
-                <option value="">All</option>
-            </select>
-
-            Title: <input type="text" name="query">
-            <input type="submit" value="Filter" />
-        </p>
+        <div class="input-field">
+            <input asp-for="searchQuery" asp-items="Model.labels" id="search" type="search" required>
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+        </div>
     </form>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.blogs[0].Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.blogs[0].ReleaseDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.blogs[0].Label)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.blogs[0].Body)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.blogs)
+    <div class="row">
+        @foreach (var item in Model.blogs)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ReleaseDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Label)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Body)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+            <div class="col s12 m6">
+                <div class="card medium blue-grey darken-1 hoverable">
+                    <div class="card-content white-text">
+                        <span class="card-title">@item.Title</span>
+                        <p>
+                            @item.Body
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a>
                         <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
     <p>
-        <a asp-action="Create">Create New</a>
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large blue asp-action="Create"">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
     </p>
-
 </div>
-

@@ -10,6 +10,6 @@ namespace Portfolio.Models
     {
         public List<Blog> blogs;
         public SelectList labels;
-        public string blogLabel { get; set; }
+        public string searchQuery { get; set; }
     }
 }
