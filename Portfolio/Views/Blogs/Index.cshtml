@@ -6,13 +6,6 @@
 
 
 <div class="container">
-
-    <div class="row">
-        <div class="col s12">
-            <h2 class="center-align">Welcome to my Blog</h2>
-        </div>
-    </div>
-
     <div class="row">
         <div class="col s12">
 
@@ -38,9 +31,9 @@
                         </p>
                     </div>
                     <div class="card-action">
-                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.ID">Details</a>
-                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        <a class="blue-text" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                        <a class="blue-text"asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        <a class="blue-text" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
                     </div>
                 </div>
             </div>
@@ -50,7 +43,7 @@
 
 
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large blue" asp-action="Create">
+            <a class="btn-floating btn-large  blue" asp-action="Create">
                 <i class="material-icons">add</i>
             </a>
         </div>

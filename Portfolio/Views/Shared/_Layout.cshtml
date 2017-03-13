@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="~/css/site1.css" />
+        
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
@@ -19,9 +20,9 @@
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <nav class="deep-purple darken-3" role="navigation">
+    <nav class="deep-purple darken-2" role="navigation">
         <div class="nav-wrapper container">
-            <a href="/home/" class="brand-logo center">303 Applications</a>
+            <a href="/home/" class="brand-logo brand-text center">303 Applications</a>
             <ul class="right hide-on-med-and-down">
                 <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                 <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
@@ -39,8 +40,8 @@
 
     <div class="body-content">
         @RenderBody()
-        <footer class="page-footer deep-purple darken-3">
-            <div class="footer-copyright deep-purple darken-3">
+        <footer class="page-footer deep-purple darken-2">
+            <div class="footer-copyright deep-purple darken-2">
                 <div class="container">
                     © 2014 Ryan Newsom
                 </div>

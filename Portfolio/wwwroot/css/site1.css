@@ -1,10 +1,15 @@
 ﻿body {
-    margin-top:0px;
-    padding-top:0px;
+    margin-top: 0px;
+    padding-top: 0px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+main {
+    flex: 1 0 auto;
+}
+
 .body-content {
     margin: 0px;
     padding: 0px;
@@ -12,7 +17,7 @@
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 
-.link {
+.link .a blue darken-4 {
     color: aqua;
 }
 
@@ -25,8 +30,8 @@
  */
 
 nav ul a,
-nav .brand-logo {
-    color: ##fafafa;
+nav .brand-logo .brand-textF {
+    color: #FFFFFF;
 }
 
 p {
@@ -34,7 +39,7 @@ p {
 }
 
 .button-collapse {
-    color: #26a69a;
+    color: #ffffff;
 }
 
 .parallax-container {
@@ -69,11 +74,10 @@ p {
     padding: 0 15px;
 }
 
-    .icon-block .material-icons {
+.icon-block .material-icons {
         font-size: inherit;
-    }
+}
 
 footer.page-footer {
     margin: 0;
 }
-
