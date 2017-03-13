@@ -9,26 +9,31 @@
     <environment names="Development">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="~/css/sitewide.css" />
+        <link rel="stylesheet" href="~/css/site1.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="~/css/sitewide.css" />
+        <link rel="stylesheet" href="~/css/site1.css" />
     </environment>
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper deep-purple darken-3">
-            <a href="/home/" class="brand-logo center">303 Application Development</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <nav class="deep-purple darken-3" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="/home/" class="brand-logo center">303 Applications</a>
             <ul class="right hide-on-med-and-down">
-
                 <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                 <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 <li><a asp-area="" asp-controller="Blogs" asp-action="Index">Blog</a></li>
             </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <li><a asp-area="" asp-controller="Blogs" asp-action="Index">Blog</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
 
@@ -50,6 +55,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $(".button-collapse").sideNav();
+                $('select').material_select();
             });
         </script>
     </environment>
