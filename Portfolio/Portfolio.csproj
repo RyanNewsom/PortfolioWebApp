@@ -16,6 +16,8 @@
     <Content Include="wwwroot\css\homeIndex.css" />
     <Content Include="wwwroot\css\site1.css" />
     <Content Include="wwwroot\css\site1.min.css" />
+    <Content Include="wwwroot\css\sitemain.css" />
+    <Content Include="wwwroot\css\sitemain.min.css" />
     <Content Include="wwwroot\css\sitewide.css" />
     <Content Include="wwwroot\css\sitewide.min.css" />
   </ItemGroup>
